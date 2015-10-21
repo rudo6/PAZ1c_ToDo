@@ -46,6 +46,7 @@ public class MainForm extends javax.swing.JFrame {
         ulohaTextField = new javax.swing.JTextField();
         pridatButton = new javax.swing.JButton();
         terminDatePicker = new org.jdesktop.swingx.JXDatePicker();
+        odstranitButton = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,21 +83,30 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        odstranitButton.setText("Odstraniť");
+        odstranitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                odstranitButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ulohaTextField)
+                        .addComponent(ulohaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(terminDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pridatButton)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                        .addComponent(pridatButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(odstranitButton))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +115,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ulohaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(terminDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pridatButton))
+                    .addComponent(pridatButton)
+                    .addComponent(odstranitButton))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
                 .addContainerGap())
@@ -128,6 +139,14 @@ public class MainForm extends javax.swing.JFrame {
     private void terminDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminDatePickerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_terminDatePickerActionPerformed
+
+    private void odstranitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_odstranitButtonActionPerformed
+        Uloha uloha = (Uloha) ulohyList.getSelectedValue();
+        ulohaDao.odstranit(uloha);
+        
+        List<Uloha> ulohy = ulohaDao.dajVsetky();
+        ulohyList.setListData(ulohy.toArray());
+    }//GEN-LAST:event_odstranitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,6 +187,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton odstranitButton;
     private javax.swing.JButton pridatButton;
     private org.jdesktop.swingx.JXDatePicker terminDatePicker;
     private javax.swing.JTextField ulohaTextField;

@@ -46,19 +46,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jScrollPane1" min="-2" pref="435" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="ulohaTextField" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="ulohaTextField" min="-2" pref="269" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="terminDatePicker" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pridatButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="odstranitButton" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,6 +72,7 @@
                   <Component id="ulohaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="terminDatePicker" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pridatButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="odstranitButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="478" max="32767" attributes="0"/>
@@ -114,6 +117,14 @@
     <Component class="org.jdesktop.swingx.JXDatePicker" name="terminDatePicker">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="terminDatePickerActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="odstranitButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Odstrani&#x165;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="odstranitButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
