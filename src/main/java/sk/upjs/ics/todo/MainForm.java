@@ -25,8 +25,7 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
-        List<Uloha> ulohy = ulohaDao.dajVsetky();        
-        ulohyList.setListData(ulohy.toArray());
+        refresh();
         
     }
 
@@ -132,8 +131,7 @@ public class MainForm extends javax.swing.JFrame {
         
         ulohaDao.pridat(uloha);
         
-        List<Uloha> ulohy = ulohaDao.dajVsetky();
-        ulohyList.setListData(ulohy.toArray());
+        refresh();
     }//GEN-LAST:event_pridatButtonActionPerformed
 
     private void terminDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminDatePickerActionPerformed
@@ -141,12 +139,16 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_terminDatePickerActionPerformed
 
     private void odstranitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_odstranitButtonActionPerformed
-        Uloha uloha = (Uloha) ulohyList.getSelectedValue();
+        Uloha uloha = (Uloha) ulohyList.getSelectedValue();        
         ulohaDao.odstranit(uloha);
         
+        refresh();
+    }//GEN-LAST:event_odstranitButtonActionPerformed
+
+    private void refresh() {
         List<Uloha> ulohy = ulohaDao.dajVsetky();
         ulohyList.setListData(ulohy.toArray());
-    }//GEN-LAST:event_odstranitButtonActionPerformed
+    }
 
     /**
      * @param args the command line arguments
