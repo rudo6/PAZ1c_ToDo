@@ -20,6 +20,6 @@ public class UlohaListCellRenderer extends DefaultListCellRenderer{
     } 
 
     private boolean jesplnena(Uloha uloha) {
-        return true;
+        return uloha.isSplnena();
     }
 }
