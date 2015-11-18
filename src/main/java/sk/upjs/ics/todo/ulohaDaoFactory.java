@@ -6,6 +6,12 @@ public enum ulohaDaoFactory {
     INSTANCE;
     
     public UlohaDao getUlohaDao() {
-        return new MySqlUlohaDao();
+        /*String profil = System.getProperty("profil");
+        if("db".equals(profil)){
+            return new MySqlUlohaDao();
+        } else{
+            return new PamatovyUlohaDao();
+       }*/
+             return new MySqlUlohaDao();
     }
 }
